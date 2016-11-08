@@ -3,6 +3,7 @@ package ru.zaur.spring.start;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.zaur.spring.components.impl.BooksImpl;
 import ru.zaur.spring.components.interfaces.IBooks;
+import ru.zaur.spring.components.interfaces.ICriticismEngine;
 import ru.zaur.spring.components.interfaces.IData;
 import ru.zaur.spring.config.SpringConfiguration;
 
@@ -16,5 +17,8 @@ public class Main {
         context.refresh();
         IData data = (IData) context.getBean("data");
         ((IBooks) data).AllBooks();
+        data.Read();
+        ICriticismEngine criticismEngine = (ICriticismEngine) context.getBean("iCriticismEngine");
+        criticismEngine.getCriticism();
     }
 }
