@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import ru.zaur.spring.aspects.AopBooks;
+import ru.zaur.spring.aspects.AopDeclareParents;
 import ru.zaur.spring.components.impl.BooksImpl;
 import ru.zaur.spring.components.impl.DataImpl;
 import ru.zaur.spring.components.interfaces.IBooks;
@@ -33,5 +34,9 @@ public class SpringConfiguration {
     public AopBooks aBooks(){
         AopBooks aopBooks;
         return new AopBooks();
+    }
+    @Bean
+    public AopDeclareParents aopDeclareParents(){
+        return new AopDeclareParents();
     }
 }

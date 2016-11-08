@@ -1,6 +1,8 @@
 package ru.zaur.spring.start;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.zaur.spring.components.impl.BooksImpl;
+import ru.zaur.spring.components.interfaces.IBooks;
 import ru.zaur.spring.components.interfaces.IData;
 import ru.zaur.spring.config.SpringConfiguration;
 
@@ -13,6 +15,6 @@ public class Main {
         context.register(SpringConfiguration.class);
         context.refresh();
         IData data = (IData) context.getBean("data");
-        data.Read();
+        ((IBooks) data).AllBooks();
     }
 }
